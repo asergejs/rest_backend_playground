@@ -5,10 +5,14 @@ import com.asergejs.backend_playground.domain.dto.RegistrationRequestDTO;
 import com.asergejs.backend_playground.domain.dto.UserDTO;
 import com.asergejs.backend_playground.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 import static com.asergejs.backend_playground.mapper.UserDTOMapper.toUserDTO;
 import static com.asergejs.backend_playground.mapper.UserEntityMapper.registrationReqToUserEntity;
+import static java.util.Optional.empty;
 
 @Slf4j
 @Component
@@ -20,10 +24,19 @@ public class RegistrationService {
         this.userRepository = userRepository;
     }
 
-    public UserDTO registerUser(RegistrationRequestDTO registrationRequestDTO) {
-        var user = userRepository.save(registrationReqToUserEntity(registrationRequestDTO));
-        log.info("Registering user with email: {}", user.getEmail());
-        return toUserDTO(user);
+    public Optional<UserDTO> registerUser(RegistrationRequestDTO registrationRequestDTO) {
+        if(userRepository.findByEmail(registrationRequestDTO.getEmail()).isPresent()) {
+            return empty();
+        }
+
+        try {
+            var user = userRepository.save(registrationReqToUserEntity(registrationRequestDTO));
+            log.info("Registering user with email: {}", user.getEmail());
+            return Optional.of(toUserDTO(user));
+        } catch (Exception ex) {
+            log.error("Exception while signing up", ex);
+            return empty();
+        }
     }
 
 }
