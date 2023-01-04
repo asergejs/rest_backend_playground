@@ -1,4 +1,4 @@
-package com.asergejs.backend_playground;
+package com.asergejs.backend_playground.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -14,6 +14,4 @@ public class UserDTO {
     @JsonProperty("email")
     private String email;
 
-    @JsonProperty("password")
-    private String password;
 }
