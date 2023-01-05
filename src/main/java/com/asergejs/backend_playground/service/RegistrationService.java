@@ -5,7 +5,6 @@ import com.asergejs.backend_playground.domain.dto.RegistrationRequestDTO;
 import com.asergejs.backend_playground.domain.dto.UserDTO;
 import com.asergejs.backend_playground.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -25,10 +24,6 @@ public class RegistrationService {
     }
 
     public Optional<UserDTO> registerUser(RegistrationRequestDTO registrationRequestDTO) {
-        if(userRepository.findByEmail(registrationRequestDTO.getEmail()).isPresent()) {
-            return empty();
-        }
-
         try {
             var user = userRepository.save(registrationReqToUserEntity(registrationRequestDTO));
             log.info("Registering user with email: {}", user.getEmail());
