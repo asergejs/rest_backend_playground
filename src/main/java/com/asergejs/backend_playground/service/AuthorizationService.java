@@ -1,6 +1,6 @@
 package com.asergejs.backend_playground.service;
 
-import com.asergejs.backend_playground.domain.User;
+import com.asergejs.backend_playground.domain.entity.User;
 import com.asergejs.backend_playground.domain.dto.SignInDTO;
 import com.asergejs.backend_playground.domain.dto.UserDTO;
 import com.asergejs.backend_playground.repository.UserRepository;

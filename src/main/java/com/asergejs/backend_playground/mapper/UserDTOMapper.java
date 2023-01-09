@@ -1,7 +1,7 @@
 package com.asergejs.backend_playground.mapper;
 
 import com.asergejs.backend_playground.domain.dto.UserDTO;
-import com.asergejs.backend_playground.domain.User;
+import com.asergejs.backend_playground.domain.entity.User;
 
 public class UserDTOMapper {
 

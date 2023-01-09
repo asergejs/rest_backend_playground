@@ -1,4 +1,4 @@
-package com.asergejs.backend_playground.domain;
+package com.asergejs.backend_playground.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
