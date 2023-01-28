@@ -10,7 +10,7 @@ public class ProductDTOMapper {
         var productDTO = new ProductDTO();
         productDTO.setId(product.getId());
         productDTO.setName(productDTO.getName());
-        productDTO.setType(product.getType());
+//        productDTO.setType(product.getType());
         productDTO.setPrice(product.getPrice());
         return productDTO;
     }
