@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
+import static jakarta.persistence.EnumType.STRING;
+
 @Getter
 @Setter
 @Entity
@@ -21,6 +23,7 @@ public class Product {
     private String name;
 
     @Column(name = "type")
+    @Enumerated(STRING)
     private ProductType type;
 
     @Column(name = "price")

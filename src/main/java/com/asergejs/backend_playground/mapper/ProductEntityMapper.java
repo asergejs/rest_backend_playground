@@ -9,7 +9,7 @@ public class ProductEntityMapper {
         var product = new Product();
         product.setId(product.getId());
         product.setName(productDTO.getName());
-//        product.setType(productDTO.getType());
+        product.setType(productDTO.getType());
         product.setPrice(product.getPrice());
         return product;
     }
