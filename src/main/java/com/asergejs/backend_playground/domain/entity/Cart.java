@@ -10,22 +10,14 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "cart")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class User {
+public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "password")
-    private String password;
-
-    @OneToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    private Cart cart;
-
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Product> products;
 }

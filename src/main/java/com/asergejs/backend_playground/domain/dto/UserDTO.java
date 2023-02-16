@@ -14,4 +14,7 @@ public class UserDTO {
     @JsonProperty("email")
     private String email;
 
+    @JsonProperty("cart")
+    private CartDTO cart;
+
 }
